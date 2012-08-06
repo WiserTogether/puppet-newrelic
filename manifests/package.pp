@@ -1,9 +1,9 @@
 class newrelic::package {
-    include newrelic::repo
+    include yum::repo::newrelic
 
     package { "newrelic-sysmond":
         ensure  => latest,
         notify  => Class["newrelic::server"],
-        require => Class["newrelic::repo"];
+        require => Class["yum::repo::newrelic"];
     }
 }
